@@ -1,3 +1,4 @@
+import "@babel/polyfill";
 import html2canvas from 'html2canvas';
 import './styles.scss';
 
