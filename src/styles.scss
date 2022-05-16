@@ -54,6 +54,13 @@ h2 {
     animation: rotate 1s linear infinite;
 }
 
+.container-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 .chispa {
     position: absolute;
     width: 1px;
