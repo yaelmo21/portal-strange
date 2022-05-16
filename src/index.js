@@ -58,8 +58,8 @@ downloadImage.onclick = async() => {
     });
 
     footer.style.visibility = 'visible';
-    const imageData = canvas.toDataURL('image/jpg');
-    saveAs(imageData, 'portal.jpg');
+    const imageData = canvas.toDataURL('image/png');
+    saveAs(imageData);
     Swal.close();
     Swal.fire({
         title: 'Image saved',
