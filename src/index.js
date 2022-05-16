@@ -4,6 +4,7 @@ import Swal from 'sweetalert2'
 import { saveAs } from 'file-saver';
 import './styles.scss';
 
+const main = document.querySelector('main');
 const portal = document.getElementById('portal');
 const inputFile = document.getElementById('input-file');
 const image = document.getElementById('image');
@@ -50,6 +51,7 @@ inputFile.onchange = ({ target }) => {
 
 
 downloadImage.onclick = async() => {
+    main.classList.remove('no-scroll');
     footer.style.visibility = 'hidden';
     Swal.fire('Please wait');
     Swal.showLoading();
@@ -58,8 +60,9 @@ downloadImage.onclick = async() => {
     });
 
     footer.style.visibility = 'visible';
+    main.classList.add('no-scroll');
     const imageData = canvas.toDataURL('image/png');
-    saveAs(imageData);
+    saveAs(imageData, 'portal');
     Swal.close();
     Swal.fire({
         title: 'Image saved',

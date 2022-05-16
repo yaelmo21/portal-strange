@@ -5,7 +5,6 @@ body {
     margin: 0;
     background-color: black;
     font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden
 }
 
 main {
@@ -73,6 +72,10 @@ h2 {
     margin: auto;
     transform-origin: top left;
     animation: resinzer 1s ease-in-out infinite;
+}
+
+.no-scroll {
+    overflow: hidden;
 }
 
 #image {
