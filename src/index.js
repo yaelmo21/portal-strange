@@ -1,5 +1,7 @@
 import "@babel/polyfill";
 import html2canvas from 'html2canvas';
+import Swal from 'sweetalert2'
+import { saveAs } from 'file-saver';
 import './styles.scss';
 
 const portal = document.getElementById('portal');
@@ -49,15 +51,23 @@ inputFile.onchange = ({ target }) => {
 
 downloadImage.onclick = async() => {
     footer.style.visibility = 'hidden';
+    Swal.fire('Please wait');
+    Swal.showLoading();
     const canvas = await html2canvas(document.querySelector('main'), {
         backgroundColor: '#000',
     });
+
     footer.style.visibility = 'visible';
     const imageData = canvas.toDataURL('image/jpg');
-    const link = document.createElement('a');
-    link.download = 'portal-strange.png';
-    link.href = imageData;
-    link.click();
+    saveAs(imageData, 'portal.jpg');
+    Swal.close();
+    Swal.fire({
+        title: 'Image saved',
+        icon: 'success',
+        showConfirmButton: false,
+        timer: 1000,
+    });
+
 }
 
 buttonReset.onclick = () => {
